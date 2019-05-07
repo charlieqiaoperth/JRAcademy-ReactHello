@@ -1,23 +1,18 @@
 import React from 'react';
-
+import { increment, decrement } from './actions/counterAction';
 class Counter extends React.Component{
-    constructor(props){
-        super(props);
-        this.state={count:0};
-    }
-    handlerAdd = ()=>{
-        this.setState({count:this.state.count+1});
-    }
-    handelerSubtract = ()=>{
-        this.setState({count:this.state.count-1});
-    }
+    // constructor(props){
+    //     super(props);        
+    // }
+
     render(){
+        const { count, dispatch} =this.props;
        return (
             <div>
-            <span>counter is : {this.state.count} </span>
-            <button onClick={this.handlerAdd}>+</button>
-            <button onClick={this.handelerSubtract}>-</button>
-            </div>
+            <span>counter is : {count} </span>
+            <button onClick={() =>dispatch(increment(1))}>+</button>
+            <button onClick={() =>dispatch(decrement(1))}>-</button>
+            </div>        
        )
     }
 

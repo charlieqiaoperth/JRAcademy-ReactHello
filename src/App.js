@@ -1,17 +1,34 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './App.css';
 import Welcome from './Welcome';
 import Counter from './Counter';
 
-const App= () => {
-  return (
-    <section className="App">
-        <Welcome name={'Nick'} isTeather />
-        <Welcome name="Charlie" />
-        <Welcome name="Sam" />
-        <Counter/>
-    </section>
-  );
+class App extends React.Component {
+  // constructor(props) {
+  //   super(props);   
+  // }
+   render(){
+    const {count, dispatch} = this.props;
+    return (
+          <section className="App">
+              <Welcome name={'Nick'} isTeather />
+              <Welcome name="Charlie" />
+              <Welcome name="Sam" />
+              <Counter 
+              count={count}
+              dispatch={dispatch}
+              />
+          </section>
+        );
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {count:state.counter.count,
+    welcomeList: state.welcome}
+}
+
+const Appc = connect(mapStateToProps)(App);
+
+export default Appc;
