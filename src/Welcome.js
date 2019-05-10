@@ -3,19 +3,17 @@
 import React from 'react';
 
 class Welcome extends React.Component {
-    // constructor(props){
-    //     super(props);
-    // }
+  
     render(){
-        const { name , isTeather } = this.props;
+        const { name , isTeacher } = this.props;
         return (
             <div>
                 {
-                    isTeather && 
+                    isTeacher && 
                     <h2>Hello, {name}, I am a Teacher</h2>
                 }
                 {
-                    !isTeather &&
+                    !isTeacher &&
                     <p>{`Hello ${name}, I am a student`}</p>
                 }
             </div>

@@ -1,10 +1,7 @@
 import React from 'react';
 import { increment, decrement } from './actions/counterAction';
 class Counter extends React.Component{
-    // constructor(props){
-    //     super(props);        
-    // }
-
+     
     render(){
         const { count, dispatch} =this.props;
        return (

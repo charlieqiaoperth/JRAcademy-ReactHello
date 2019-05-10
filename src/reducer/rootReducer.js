@@ -4,8 +4,8 @@ import welcome from './welcomeReducer';
 
 const rootReducer = combineReducers(
     {
-        counter:counter,
-        welcome:welcome
+        counter,
+        welcome,
     }
 );
 export default rootReducer;

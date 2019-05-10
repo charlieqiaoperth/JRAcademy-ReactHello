@@ -9,12 +9,17 @@ class App extends React.Component {
   //   super(props);   
   // }
    render(){
-    const {count, dispatch} = this.props;
+    const {count, welcomeList,dispatch} = this.props;
     return (
           <section className="App">
-              <Welcome name={'Nick'} isTeather />
-              <Welcome name="Charlie" />
-              <Welcome name="Sam" />
+              {
+                welcomeList.map((element,index) => 
+                (
+                  <Welcome key={index} name={element.name} isTeacher={element.isTeacher}/>
+                )              
+              )
+              }
+              
               <Counter 
               count={count}
               dispatch={dispatch}
