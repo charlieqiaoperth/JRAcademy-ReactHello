@@ -1,13 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
+// import axios from 'axios';
 import './App.css';
 import Welcome from './Welcome';
 import Counter from './Counter';
+import WelcomeForm from './welcomeForm';
+import { getWelcomeAsync } from './actions/addWelcomeAction';
 
 class App extends React.Component {
   // constructor(props) {
   //   super(props);   
   // }
+  componentDidMount(){
+    const { dispatch } =this.props;     
+    dispatch(getWelcomeAsync());
+  }
+
    render(){
     const {count, welcomeList,dispatch} = this.props;
     return (
@@ -15,7 +23,7 @@ class App extends React.Component {
               {
                 welcomeList.map((element,index) => 
                 (
-                  <Welcome key={index} name={element.name} isTeacher={element.isTeacher}/>
+                  <Welcome key={index} author={element.author} content={element.content}/>
                 )              
               )
               }
@@ -24,6 +32,9 @@ class App extends React.Component {
               count={count}
               dispatch={dispatch}
               />
+              <WelcomeForm 
+              dispatch={dispatch}
+              />             
           </section>
         );
   }
@@ -31,7 +42,8 @@ class App extends React.Component {
 
 const mapStateToProps = (state) => {
   return {count:state.counter.count,
-    welcomeList: state.welcome}
+    welcomeList: state.welcomeList,
+    }
 }
 
 const Appc = connect(mapStateToProps)(App);

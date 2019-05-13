@@ -1,11 +1,17 @@
-const defaulState = [
-    {id:1, name: 'Nick', isTeacher:true },
-    {id:2, name: 'Tim', isTeacher:false },
-    {id:3, name: 'Sam', isTeacher:false },
-]
+import { ADD_WELCOME} from '../actions/addWelcomeAction'
 
-const welcome = (state=defaulState, action) => {
-    return state;
-}
+const defaultState ={
+    author:"",
+    content:""
+};
+
+const welcome = (state=defaultState, action) => {
+    switch(action.type) {
+        case ADD_WELCOME:
+            return Object.assign({}, state, {author:action.payload.author,content:action.payload.content});
+        default:
+            return state;
+        }
+    }
 
 export default welcome;

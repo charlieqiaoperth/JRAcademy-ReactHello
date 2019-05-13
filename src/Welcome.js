@@ -5,18 +5,9 @@ import React from 'react';
 class Welcome extends React.Component {
   
     render(){
-        const { name , isTeacher } = this.props;
+        const { author , content } = this.props;
         return (
-            <div>
-                {
-                    isTeacher && 
-                    <h2>Hello, {name}, I am a Teacher</h2>
-                }
-                {
-                    !isTeacher &&
-                    <p>{`Hello ${name}, I am a student`}</p>
-                }
-            </div>
+            <p>{`Hello, ${author}, ${content}`}</p>            
         )
     }
 }

@@ -1,11 +1,12 @@
 import { combineReducers } from 'redux';
 import counter from './counterReducer';
-import welcome from './welcomeReducer';
+// import welcome from './welcomeReducer';
+import welcomeList from './welcomeListReducer';
 
 const rootReducer = combineReducers(
     {
         counter,
-        welcome,
+        welcomeList
     }
 );
 export default rootReducer;
